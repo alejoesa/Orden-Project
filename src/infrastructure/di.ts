@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { UserRepository } from "./adapters/database";
 import { UserService } from "../core/services";
 import { AuthController, UserController } from "./adapters/controllers";
-import { AuthService } from "./adapters/services";
+import { AuthService, PasswordService } from "./adapters/services";
 
 // config 
 
@@ -13,8 +13,9 @@ const dbClient = new PrismaClient();
 const userRepository = new UserRepository(dbClient);
 
 // services
-const userService = new UserService(userRepository);
 const authService = new AuthService(JWT_SECRET);
+const passwordService = new PasswordService();
+const userService = new UserService(userRepository,passwordService);
 
 
 // controllers

@@ -1,8 +1,9 @@
-export interface IUser{
-    id: number;
-    email: string;
-    password: string;
-}
+import { User } from '@prisma/client';
+
+export type IUser = User;
+
+export type IUserCreate = Omit<User, 'id'>
+
 
 export interface IAccessToken{
     access_token: string;

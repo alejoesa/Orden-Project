@@ -1,4 +1,4 @@
-import { IUser } from "../../../core/domain/interfaces";
+import { IUser, IUserCreate } from "../../../core/domain/interfaces";
 import { IDBClient } from "../../../core/domain/ports/persitence/IDBClient";
 import { IUserRepository } from "../../../core/domain/ports/persitence/IUserRepository";
 
@@ -11,7 +11,7 @@ export class UserRepository implements IUserRepository{
     getAll(): Promise<IUser[]> {
         throw new Error("Method not implemented.");
     }
-    create(user: IUser): Promise<IUser> {
+    create(user: IUserCreate): Promise<IUser> {
         throw new Error("Method not implemented.");
     }
     
